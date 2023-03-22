@@ -19,4 +19,11 @@ export const styles = StyleSheet.create({
       height: 12,
     },
   },
+  imgRedonda: {
+    width: 200,
+    height: 200,
+    marginLeft: "auto",
+    marginRight: "auto",
+    borderRadius: "999px",
+  },
 });

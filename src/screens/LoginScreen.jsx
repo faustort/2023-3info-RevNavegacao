@@ -8,7 +8,7 @@ export default function LoginScreen() {
       <View style={styles.box}>
         <Image
           source={{ uri: "https://picsum.photos/200" }}
-          style={{ width: 200, height: 200 }}
+          style={styles.imgRedonda}
         />
         <TextInput label="Email" placeholder="Digite seu email" />
         <TextInput
