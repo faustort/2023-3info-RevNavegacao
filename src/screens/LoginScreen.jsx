@@ -3,6 +3,13 @@ import { TextInput } from "react-native-paper";
 import { styles } from "../utils/styles";
 
 export default function LoginScreen() {
+
+
+  // função para lidar com o login do Usuário
+  function handleLogin(){
+
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.box}>
