@@ -4,11 +4,12 @@ import { styles } from "../utils/styles";
 
 export default function LoginScreen() {
 
+  
+  
+
 
   // função para lidar com o login do Usuário
-  function handleLogin(){
-
-  }
+  function handleLogin() {}
 
   return (
     <View style={styles.container}>
