@@ -1,6 +1,7 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import FetchNews from "./screens/FetchNews";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
@@ -50,9 +51,14 @@ function TabsNavigation() {
           tabBarLabel: "Faça seu Login",
         }}
       />
-      <Tabs.Screen 
-        name="RegisterScreen" 
-        component={RegisterScreen} 
+      <Tabs.Screen
+        name="RegisterScreen"
+        component={RegisterScreen}
+      />
+      <Tabs.Screen
+        name="FetchNews"
+        component={FetchNews}
+
       />
     </Tabs.Navigator>
   );
