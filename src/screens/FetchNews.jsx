@@ -5,7 +5,7 @@ import { styles } from "../utils/styles";
 
 export default function FetchNews() {
   const [data, setData] = useState([]);
-
+  const [nome, setNome] = useState("Rafael");
   function fetchNewsData() {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json()) // transforma a informação em JSON
@@ -18,14 +18,13 @@ export default function FetchNews() {
 
   return (
     <View style={styles.container}>
-      <Text>Fetch News</Text>
-      {
-        data.map(
-          (item) => (
-            <Text key={item.id}>{item.title}</Text>
-          )
-        )
-      }
+      <Text>Fetch News {nome}</Text>
+      {data.map((item) => (
+        <View key={item.id}>
+          <Text style={{ fontWeight: "bold" }}>{item.title}</Text>
+          <Text>{item.body}</Text>
+        </View>
+      ))}
     </View>
   );
 }
