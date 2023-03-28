@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { Text } from "react-native-paper";
 import { styles } from "../utils/styles";
 
@@ -17,7 +17,7 @@ export default function FetchNews() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text>Fetch News {nome}</Text>
       {data.map((item) => (
         <View key={item.id}>
@@ -25,6 +25,6 @@ export default function FetchNews() {
           <Text>{item.body}</Text>
         </View>
       ))}
-    </View>
+    </ScrollView>
   );
 }
