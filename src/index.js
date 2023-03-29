@@ -5,6 +5,7 @@ import FetchNews from "./screens/FetchNews";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import RickMorty from "./screens/RickMorty";
 import SplashScreen from "./screens/SplashScreen";
 
 const Stack = createNativeStackNavigator();
@@ -58,6 +59,11 @@ function TabsNavigation() {
       <Tabs.Screen
         name="FetchNews"
         component={FetchNews}
+
+      />
+      <Tabs.Screen
+        name="RickMorty"
+        component={RickMorty}
 
       />
     </Tabs.Navigator>
