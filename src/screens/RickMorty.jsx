@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { ScrollView, View } from "react-native";
-import { Card, Paragraph, Title } from "react-native-paper";
+import { Dimensions, ScrollView, View } from "react-native";
+import { Card, Paragraph, Title, ToggleButton, Text } from "react-native-paper";
 import { styles } from "../utils/styles";
 
 export default function RickMorty() {
@@ -24,22 +24,38 @@ export default function RickMorty() {
 
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        {data.map((item) => (
-          <Card key={item.name}>
-            <Card.Title>{item.name}</Card.Title>
-            <Card.Content>
-              <Title>{item.name}</Title>
-              <Paragraph>Está vivo? {item.status}</Paragraph>
-              {item.episode.map((episode) => (
-                <Paragraph key={episode}>{episode}</Paragraph>
-              ))}
-            </Card.Content>
-            <Card.Cover source={{ uri: item.image }} />
-          </Card>
-        ))}
+    <View style={styles.containerFullWidth}>
+      <View>
+        <Text>Menu</Text>
+        <ToggleButton
+          icon="bluetooth"
+          value="bluetooth"
+          status={this.state.status}
+          // onPress={value =>
+          //   this.setState({
+          //     status: value === 'checked' ? 'unchecked' : 'checked',
+          //   })
+          // }
+        />
       </View>
-    </ScrollView>
+      <ScrollView style={styles.widthFull}>
+        <View style={{ ...styles.container, ...styles.widthFull }}>
+          {data.map((item) => (
+            <Card style={{ ...styles.widthFull, marginBottom: 20 }} key={item.name}>
+              <Card.Title>{item.name}</Card.Title>
+              <Card.Content>
+                <Title>{item.name}</Title>
+                <Paragraph>Está vivo? {item.status}</Paragraph>
+                {/* {item.episode.map((episode) => (
+                <Paragraph key={episode}>{episode}</Paragraph>
+              ))} */}
+              </Card.Content>
+              <Card.Cover source={{ uri: item.image }} />
+            </Card>
+          ))}
+        </View>
+      </ScrollView>
+    </View>
+
   );
 }

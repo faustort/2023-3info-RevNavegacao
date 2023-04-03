@@ -17,14 +17,16 @@ export default function FetchNews() {
   }, []);
 
   return (
-    <ScrollView style={styles.container}>
-      <Text>Fetch News {nome}</Text>
-      {data.map((item) => (
-        <View key={item.id}>
-          <Text style={{ fontWeight: "bold" }}>{item.title}</Text>
-          <Text>{item.body}</Text>
-        </View>
-      ))}
-    </ScrollView>
+    <View style={styles.container}>
+      <ScrollView >
+        <Text>Fetch News {nome}</Text>
+        {data.map((item) => (
+          <View key={item.id}>
+            <Text style={{ fontWeight: "bold" }}>{item.title}</Text>
+            <Text>{item.body}</Text>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
   );
 }
