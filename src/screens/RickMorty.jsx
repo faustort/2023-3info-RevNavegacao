@@ -11,22 +11,6 @@ export default function RickMorty() {
   })
 
   useEffect(() => {
-
-    // buscar, requerer as informações externas
-    fetch("https://rickandmortyapi.com/api/character")
-      // essas informações chegam via promessa
-      // vamos tentar converte-las em Json
-      .then((data) => data.json())
-      // depois eu vou preencher, popular a variável data
-      .then((dataJson) => setData(dataJson.results))
-      // caso ocorra erros eu mostro o erro no console
-      .catch((error) => {
-        console.log(error);
-      })
-
-  }, [])
-
-  useEffect(() => {
     // construir a URL da API com base nas opções de busca
     const apiUrl = `https://rickandmortyapi.com/api/character?${buscaBt.status}${buscaBt.gender}`;
 
