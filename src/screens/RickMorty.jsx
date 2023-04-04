@@ -41,7 +41,7 @@ export default function RickMorty() {
       .catch((error) => {
         console.log(error);
       })
-  }, [buscaBt.status, buscaBt.genero]);
+  }, [buscaBt.status, buscaBt.gender]);
 
   const handleStatusFilter = (status) => {
     setBuscaBt({
@@ -57,17 +57,16 @@ export default function RickMorty() {
     });
   };
 
-
   return (
     <View style={styles.containerFullWidth}>
       <View>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text>Status do personagem: </Text>
           <Button
-            onPress={() => handleStatusFilter("Alive")}
+            onPress={() => handleStatusFilter("alive")}
           >Vivo</Button>
           <Button
-            onPress={() => handleStatusFilter("Dead")}
+            onPress={() => handleStatusFilter("dead")}
           >Morto</Button>
           <Button
             onPress={() => handleStatusFilter("unknown")}
@@ -76,13 +75,13 @@ export default function RickMorty() {
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text>Gênero: </Text>
           <Button
-            onPress={() => handleGenderFilter("Male")}
+            onPress={() => handleGenderFilter("male")}
           >Masculino</Button>
           <Button
-            onPress={() => handleGenderFilter("Female")}
+            onPress={() => handleGenderFilter("female")}
           >Feminino</Button>
           <Button
-            onPress={() => handleGenderFilter("Genderless")}
+            onPress={() => handleGenderFilter("genderless")}
           >Sem Gênero</Button>
           <Button
             onPress={() => handleGenderFilter("unknown")}
@@ -93,7 +92,7 @@ export default function RickMorty() {
       <ScrollView style={styles.widthFull}>
         <View style={{ ...styles.container, ...styles.widthFull }}>
           {data.map((item) => (
-            <Card style={{ ...styles.widthFull, marginBottom: 20 }} key={item.name}>
+            <Card style={{ ...styles.widthFull, marginBottom: 20 }} key={item.id}>
               <Card.Title>{item.name}</Card.Title>
               <Card.Content>
                 <Title>{item.name}</Title>
