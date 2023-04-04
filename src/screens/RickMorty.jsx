@@ -6,7 +6,7 @@ import { styles } from "../utils/styles";
 export default function RickMorty() {
   const [data, setData] = useState([]);
   const [buscaBt, setBuscaBt] = useState({
-    genero: "",
+    gender: "",
     status: ""
   })
 
@@ -28,7 +28,7 @@ export default function RickMorty() {
 
   useEffect(() => {
     // construir a URL da API com base nas opções de busca
-    const apiUrl = `https://rickandmortyapi.com/api/character?${buscaBt.status}${buscaBt.genero}`;
+    const apiUrl = `https://rickandmortyapi.com/api/character?${buscaBt.status}${buscaBt.gender}`;
 
     // buscar, requerer as informações externas
     fetch(apiUrl)
