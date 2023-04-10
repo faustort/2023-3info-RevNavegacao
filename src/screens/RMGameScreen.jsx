@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View } from "react-native";
+import { Image, View } from "react-native";
 import { Button, Text } from "react-native-paper";
 import { styles } from "../utils/styles";
 
@@ -35,6 +35,10 @@ export default function RMGameScreen() {
 
     return (
         <View style={styles.container}>
+            <Image
+                source={{ uri: personagem?.image }}
+                style={{ width: 200, height: 200 }}
+            ></Image>
             <Text>Personagem: {personagem?.name}</Text>
             <Button onPress={buscaPersonagemAleatorio} > Buscar Personagem </Button>
         </View>
