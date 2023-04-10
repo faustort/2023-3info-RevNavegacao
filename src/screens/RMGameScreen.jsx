@@ -33,13 +33,30 @@ export default function RMGameScreen() {
         return Math.floor(Math.random() * totalPersonagens);
     }
 
+    function checkIfPersonagemEstaVivo() {
+        if (personagem.status === 'Alive') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     return (
         <View style={styles.container}>
+            <Text>Este personagem está vive?</Text>
             <Image
                 source={{ uri: personagem?.image }}
                 style={{ width: 200, height: 200 }}
             ></Image>
             <Text>Personagem: {personagem?.name}</Text>
+            <View>
+                <Button
+
+                >SIM</Button>
+                <Button >NÃO</Button>
+            </View>
+
+
             <Button onPress={buscaPersonagemAleatorio} > Buscar Personagem </Button>
         </View>
     )
