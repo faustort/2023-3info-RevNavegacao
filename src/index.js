@@ -7,6 +7,7 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import RickMorty from "./screens/RickMorty";
 import SplashScreen from "./screens/SplashScreen";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Stack = createNativeStackNavigator();
 
@@ -42,29 +43,51 @@ function TabsNavigation() {
         name="HomeScreen"
         component={HomeScreen}
         options={{
-          tabBarLabel: "Inicio",
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
+          )
         }}
       />
       <Tabs.Screen
         name="LoginScreen"
         component={LoginScreen}
         options={{
-          tabBarLabel: "Faça seu Login",
+          tabBarLabel: "Login",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="login" color={color} size={26} />
+          )
         }}
       />
       <Tabs.Screen
         name="RegisterScreen"
         component={RegisterScreen}
+        options={{
+          tabBarLabel: "Registro",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account-plus" color={color} size={26} />
+          )
+        }}
       />
       <Tabs.Screen
         name="FetchNews"
         component={FetchNews}
-
+        options={{
+          tabBarLabel: "Notícias",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="newspaper" color={color} size={26} />
+          )
+        }}
       />
       <Tabs.Screen
         name="RickMorty"
         component={RickMorty}
-
+        options={{
+          tabBarLabel: "Rick & Morty",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="alien" color={color} size={26} />
+          )
+        }}
       />
     </Tabs.Navigator>
   );

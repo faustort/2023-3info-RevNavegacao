@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
-import { Dimensions, ScrollView, View } from "react-native";
-import { Card, Paragraph, Title, ToggleButton, Text, Button } from "react-native-paper";
+import { ScrollView, View } from "react-native";
+import { Card, Paragraph, Title, Text, Button } from "react-native-paper";
 import { styles } from "../utils/styles";
 
 export default function RickMorty() {
+  // Resposável por receber os dados do JSON
   const [data, setData] = useState([]);
+  
+  // Esta variável representa o filtro de busca
   const [buscaBt, setBuscaBt] = useState({
+    // gender pra filtrar por gênero
     gender: "",
+    // status pra filtrar por vivo ou morto
     status: ""
   })
 
