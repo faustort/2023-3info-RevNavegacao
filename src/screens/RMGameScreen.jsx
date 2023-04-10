@@ -50,10 +50,8 @@ export default function RMGameScreen() {
             ></Image>
             <Text>Personagem: {personagem?.name}</Text>
             <View>
-                <Button
-
-                >SIM</Button>
-                <Button >NÃO</Button>
+                <Button>SIM</Button>
+                <Button>NÃO</Button>
             </View>
 
 
