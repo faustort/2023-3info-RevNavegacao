@@ -8,6 +8,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import RickMorty from "./screens/RickMorty";
 import SplashScreen from "./screens/SplashScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import RMGameScreen from "./screens/RMGameScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +57,16 @@ function TabsNavigation() {
           tabBarLabel: "Login",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="login" color={color} size={26} />
+          )
+        }}
+      />
+      <Tabs.Screen
+        name="RMGame"
+        component={RMGameScreen}
+        options={{
+          tabBarLabel: "Jogo",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="gamepad-variant" color={color} size={26} />
           )
         }}
       />
