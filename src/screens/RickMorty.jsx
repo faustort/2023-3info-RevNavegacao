@@ -15,6 +15,7 @@ export default function RickMorty() {
     status: ""
   })
 
+  // Quando o componente for montado, executar a função  
   useEffect(() => {
     // construir a URL da API com base nas opções de busca
     const apiUrl = `https://rickandmortyapi.com/api/character?${buscaBt.status}${buscaBt.gender}`;
@@ -32,14 +33,19 @@ export default function RickMorty() {
       })
   }, [buscaBt.status, buscaBt.gender]);
 
+  // Função para filtrar por status baseado na variável 
+  // status que recebe o valor do botão
   const handleStatusFilter = (status) => {
+    // utiliza a função setBuscaBt para alterar o valor da variável
     setBuscaBt({
       ...buscaBt,
       status: `&status=${status}`
     });
   };
 
+  // Função para filtrar por gênero baseado na variável
   const handleGenderFilter = (gender) => {
+    // utiliza a função setBuscaBt para alterar o valor da variável
     setBuscaBt({
       ...buscaBt,
       gender: `&gender=${gender}`
