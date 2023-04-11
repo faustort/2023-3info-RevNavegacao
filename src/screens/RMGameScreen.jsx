@@ -6,57 +6,60 @@ import { styles } from "../utils/styles";
 export default function RMGameScreen() {
     const [personagem, setPersonagem] = useState(null);
     const [personagens, setPersonagens] = useState([]);
-    const [totalPersonagens, setTotalPersonagens] = useState(0);
-
+    const [totalPersonagens, setTotalPersonagens] = useState(1);
 
     useEffect(() => {
-        retornaTotalDePesonagens();
-    }, [])
+        fetch('https://rickandmortyapi.com/api/character')
+            .then((response) => response.json())
+            .then((json) => {
+                setTotalPersonagens(json.info.count);
+            })
+    }, []);
 
-    function buscaPersonagemAleatorio() {
-        fetch('https://rickandmortyapi.com/api/character/' + retornaIndiceAleatorio())
+    useEffect(() => {
+        fetch('https://rickandmortyapi.com/api/character/' + returnRandomNumber())
+            .then((response) => response.json())
+            .then((json) => {
+                setPersonagem(json);
+            })
+    }, [totalPersonagens]);
+
+    async function handlePersonagemVivo() {
+        const isAlive = personagem.status === 'Alive';
+        alert(isAlive ? 'Você acertou!' : 'Você errou!');
+        fetch('https://rickandmortyapi.com/api/character/' + returnRandomNumber())
             .then((response) => response.json())
             .then((json) => {
                 setPersonagem(json);
             })
     }
 
-    function retornaTotalDePesonagens() {
-        fetch('https://rickandmortyapi.com/api/character')
-            .then((response) => response.json())
-            .then((json) => {
-                setTotalPersonagens(json.info.count);
-            });
-    }
+    const returnRandomNumber = () => {
+        let randomNumber = Math.floor(Math.random() * totalPersonagens) + 1;
 
-    function retornaIndiceAleatorio() {
-        return Math.floor(Math.random() * totalPersonagens);
-    }
-
-    function checkIfPersonagemEstaVivo() {
-        if (personagem.status === 'Alive') {
-            return true;
-        } else {
-            return false;
+        // canoot return 0
+        if (randomNumber === 0) {
+            return 1;
         }
+        return randomNumber;
     }
 
     return (
         <View style={styles.container}>
-            <Text>Este personagem está vive?</Text>
-            <Image
-                source={{ uri: personagem?.image }}
-                style={{ width: 200, height: 200 }}
-            ></Image>
-            <Text>Personagem: {personagem?.name}</Text>
-            <View>
-                <Button>SIM</Button>
-                <Button>NÃO</Button>
-            </View>
-
-
-            <Button onPress={buscaPersonagemAleatorio} > Buscar Personagem </Button>
+            <Text style={styles.title}>Rick and Morty Game</Text>
+            <Text style={styles.subtitle}>Você sabe se o personagem está vivo?</Text>
+            {personagem && (
+                <View>
+                    <Image source={{ uri: personagem.image }} style={{ width: 200, height: 200 }} />
+                    <Text style={{ fontSize: 32, textAlign: "center", marginVertical: 20 }}>
+                        O/a personagem {personagem.name} está vivo/a/e?
+                    </Text>
+                    <View style={{ flexDirection: "row", gap: 20 }}>
+                        <Button mode="contained" onPress={handlePersonagemVivo}>SIM</Button>
+                        <Button mode="contained" onPress={() => setPersonagem(null)}>NÃO</Button>
+                    </View>
+                </View>
+            )}
         </View>
-    )
-
+    );
 }
