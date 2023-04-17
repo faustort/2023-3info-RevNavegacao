@@ -24,14 +24,19 @@ export default function RMGameScreen() {
             })
     }, [totalPersonagens]);
 
-    async function handlePersonagemVivo() {
+    async function handlePersonagemVivoOuMorto(resposta) {
         const isAlive = personagem.status === 'Alive';
-        alert(isAlive ? 'Você acertou!' : 'Você errou!');
-        fetch('https://rickandmortyapi.com/api/character/' + returnRandomNumber())
-            .then((response) => response.json())
-            .then((json) => {
-                setPersonagem(json);
-            })
+        if (resposta === isAlive) {
+            alert('Você acertou!');
+        } else {
+            alert('Você errou!');
+        }
+        //alert(isAlive ? 'Você acertou!' : 'Você errou!');
+        // fetch('https://rickandmortyapi.com/api/character/' + returnRandomNumber())
+        //     .then((response) => response.json())
+        //     .then((json) => {
+        //         setPersonagem(json);
+        //     })
     }
 
     const returnRandomNumber = () => {
@@ -55,8 +60,14 @@ export default function RMGameScreen() {
                         O/a personagem {personagem.name} está vivo/a/e?
                     </Text>
                     <View style={{ flexDirection: "row", gap: 20 }}>
-                        <Button mode="contained" onPress={handlePersonagemVivo}>SIM</Button>
-                        <Button mode="contained" onPress={() => setPersonagem(null)}>NÃO</Button>
+                        <Button
+                            mode="contained"
+                            onPress={() => handlePersonagemVivoOuMorto(true)}
+                        >SIM</Button>
+                        <Button
+                            mode="contained"
+                            onPress={() => handlePersonagemVivoOuMorto(false)}
+                        >NÃO</Button>
                     </View>
                 </View>
             )}
