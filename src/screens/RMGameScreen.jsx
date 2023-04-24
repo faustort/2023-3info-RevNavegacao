@@ -59,7 +59,13 @@ export default function RMGameScreen() {
                     <Text style={{ fontSize: 32, textAlign: "center", marginVertical: 20 }}>
                         O/a personagem {personagem.name} está vivo/a/e?
                     </Text>
-                    <View style={{ flexDirection: "row", gap: 20 }}>
+                    <View style={
+                        {
+                            flexDirection: "row",
+                            gap: 20,
+                            justifyContent: "center"
+                        }
+                    }>
                         <Button
                             mode="contained"
                             onPress={() => handlePersonagemVivoOuMorto(true)}
