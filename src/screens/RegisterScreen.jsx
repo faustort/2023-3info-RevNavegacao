@@ -50,7 +50,7 @@ export default function RegisterScreen({ navigation }) {
       <View style={styles.box}>
         <Paragraph>Realize o seu cadastro</Paragraph>
 
-        {error && <Text variant="titleMedium">{error}</Text>}
+        {error && <Text variant="titleMedium" style={{ fontWeight: 'bold', textAlign: "center" }}>{error}</Text>}
 
         <TextInput
           label={"Nome"}
