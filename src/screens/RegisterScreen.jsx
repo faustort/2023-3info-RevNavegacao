@@ -24,7 +24,7 @@ export default function RegisterScreen({ navigation }) {
           uid: userCredential.user.uid,
           dataDeCadastro: new Date(),
         }).then((docRef) => {
-          console.log("Document written with ID: ", docRef.id);
+          console.log("Documento salvo com o ID: ", docRef.id);
           navigation.navigate("LoginScreen");
         });
       })

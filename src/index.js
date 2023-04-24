@@ -9,6 +9,7 @@ import RickMorty from "./screens/RickMorty";
 import SplashScreen from "./screens/SplashScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import RMGameScreen from "./screens/RMGameScreen";
+import Logout from "./screens/LogOut";
 
 const Stack = createNativeStackNavigator();
 
@@ -97,6 +98,16 @@ function TabsNavigation() {
           tabBarLabel: "Rick & Morty",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="alien" color={color} size={26} />
+          )
+        }}
+      />
+      <Tabs.Screen
+        name="Logout"
+        component={Logout}
+        options={{
+          tabBarLabel: "Logout",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="logout" color={color} size={26} />
           )
         }}
       />
