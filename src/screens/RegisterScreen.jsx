@@ -48,10 +48,17 @@ export default function RegisterScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <Paragraph>Realize o seu cadastro {email}</Paragraph>
+        <Paragraph>Realize o seu cadastro</Paragraph>
 
         {error && <Text variant="titleMedium">{error}</Text>}
 
+        <TextInput
+          label={"Nome"}
+          placeholder="Digite seu nome"
+          value={nome}
+          onChangeText={setNome}
+          mode="outlined"
+        />
         <TextInput
           label={"E-mail"}
           placeholder="Digite seu e-mail"
